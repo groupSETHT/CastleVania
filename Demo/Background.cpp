@@ -55,13 +55,12 @@ void Background::Draw(LPD3DXSPRITE _spriteHandler, D3DXVECTOR2 pos_c, int _lobeg
 	D3DXMATRIX Scale;
 	D3DXMatrixIdentity(&Scale); 
 	D3DXMatrixTransformation2D(&Scale, &D3DXVECTOR2(0, 0), 0.0f, &D3DXVECTOR2(1.0f, 1.0f), NULL, 0.f, NULL);
-	//D3DXMatrixMultiply(&Scale, &Scale, &a->Get_ViewPort());
 	_spriteHandler->SetTransform(&Scale);
 	D3DXVECTOR3 center(float(16) / 2, float(16) / 2, 0);
 	RECT rect;
 	int x_tile = 0;
 	int y_tile = 0;
-	int minRange = pos_c.x / tile_sizex + _lobeginx-2;
+	int minRange = pos_c.x / tile_sizex + _lobeginx;
 	int maxRange = minRange + SCREEN_WIDTH / tile_sizex + 4;
 	int _dy = _loendy - _lobeginy;
 	int maxRangeHer = _loendy;
@@ -74,7 +73,7 @@ void Background::Draw(LPD3DXSPRITE _spriteHandler, D3DXVECTOR2 pos_c, int _lobeg
           		x_tile = (map[x][y] % (tile_sizex));
 				y_tile = (map[x][y] / (tile_sizey));
 				rect = { x_tile * tile_sizex, y_tile * tile_sizey, (x_tile + 1) * tile_sizex, (y_tile + 1) * tile_sizey };
-				_spriteHandler->Draw(m_texture, &rect, &center, &_CoorTile[c][d], D3DCOLOR_XRGB(255, 255, 255));
+				_spriteHandler->Draw(m_texture, &rect, NULL, &_CoorTile[c][d], D3DCOLOR_XRGB(255, 255, 255));
 				if (d <= (SCREEN_WIDTH / tile_sizex)+2){
 					d++;
 				}

@@ -1,7 +1,7 @@
 #pragma once
 #include <d3dx9.h>
 #define SCREEN_WIDTH 512
-#define SCREEN_HEIGHT 480
+#define SCREEN_HEIGHT 208
 #define FRAME_RATE 60		
 class Camera
 {
@@ -16,13 +16,13 @@ public:
 	Camera(void);
 	~Camera(void);
 
-
+	void SetViewPort(D3DXVECTOR2 viewPort);
 	void SetWorldSize(D3DXVECTOR2 worldSize);
 	void Update(D3DXVECTOR2 characterPosition);
 	void AutoUpdate();
+	D3DXVECTOR2 Camera::Transform(int x, int y);
 
-
-	D3DXVECTOR2 GetViewPort() const;
-	D3DXVECTOR2 GetWorldSize() const;
+	D3DXVECTOR2 GetViewPort();
+	D3DXVECTOR2 GetWorldSize();
 };
 

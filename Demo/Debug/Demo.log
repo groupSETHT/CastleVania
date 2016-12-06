@@ -1,13 +1,11 @@
-﻿Build started 04-Dec-16 3:38:59 PM.
-     1>Project "E:\Học Kỳ VII\Game Beginning\Game_Castle\CastleVania\Demo\Demo\Demo.vcxproj" on node 2 (Build target(s)).
+﻿Build started 06-Dec-16 7:24:34 AM.
+     1>Project "E:\Học Kỳ VII\Game Beginning\My Project\CastleVania\Demo\Demo.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt CGameApp.cpp
-         CGameApp.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Simon.cpp
+         Simon.cpp
          c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-     1>e:\học kỳ vii\game beginning\game_castle\castlevania\demo\demo\camera.h(4): warning C4005: 'SCREEN_HEIGHT' : macro redefinition
-                 e:\học kỳ vii\game beginning\game_castle\castlevania\demo\demo\cwindown.h(11) : see previous definition of 'SCREEN_HEIGHT'
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\Học Kỳ VII\Game Beginning\Game_Castle\CastleVania\Demo\Debug\Demo.exe" /INCREMENTAL /NOLOGO d3d9.lib d3dx9.lib dxguid.lib dinput8.lib dxerr.lib Winmm.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\Học Kỳ VII\Game Beginning\Game_Castle\CastleVania\Demo\Debug\Demo.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\Học Kỳ VII\Game Beginning\Game_Castle\CastleVania\Demo\Debug\Demo.lib" /MACHINE:X86 Debug\Brick.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\Học Kỳ VII\Game Beginning\My Project\CastleVania\Debug\Demo.exe" /INCREMENTAL /NOLOGO d3d9.lib d3dx9.lib dxguid.lib dinput8.lib dxerr.lib Winmm.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\Học Kỳ VII\Game Beginning\My Project\CastleVania\Debug\Demo.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\Học Kỳ VII\Game Beginning\My Project\CastleVania\Debug\Demo.lib" /MACHINE:X86 Debug\Brick.obj
          Debug\Camera.obj
          Debug\CGameApp.obj
          Debug\colision.obj
@@ -26,9 +24,9 @@
          Debug\SweptAABB.obj
          Debug\Texture.obj
          Debug\Timer.obj
-         Demo.vcxproj -> E:\Học Kỳ VII\Game Beginning\Game_Castle\CastleVania\Demo\Debug\Demo.exe
-     1>Done Building Project "E:\Học Kỳ VII\Game Beginning\Game_Castle\CastleVania\Demo\Demo\Demo.vcxproj" (Build target(s)).
+         Demo.vcxproj -> E:\Học Kỳ VII\Game Beginning\My Project\CastleVania\Debug\Demo.exe
+     1>Done Building Project "E:\Học Kỳ VII\Game Beginning\My Project\CastleVania\Demo\Demo.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.54
+Time Elapsed 00:00:01.62

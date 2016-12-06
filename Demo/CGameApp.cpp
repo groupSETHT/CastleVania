@@ -29,8 +29,8 @@ int CGameApp::gameInit(HINSTANCE hIstance){
 	FPS = 60;
 	simon = new Simon();
 	CTexture *m_texture = new CTexture(graphic->getPd3device());
-	level3 = new Background();
-	level3->Init(m_texture->GetTexture("Level3_tile.png"), "Level3_tile.txt");
+	map3 = new Background();
+	map3->Init(m_texture->GetTexture("Level3_tile.png"), "Level3_tile.txt");
 	camera = new Camera();
 	D3DXCreateFont(graphic->getPd3device(), 20, 0, FW_BOLD, 0, FALSE, DEFAULT_CHARSET, OUT_DEFAULT_PRECIS, DEFAULT_QUALITY, DEFAULT_PITCH | FF_DONTCARE, TEXT("Arial"), &m_font);
 	return 1;
@@ -55,11 +55,9 @@ int CGameApp::gameRun(){
 			m_input->ProcessKeyBoard();
 			updateWorld(currentDelta);
 			if (Deltal > 1.0f / (float)FPS){
-				//m_time->FreshTime();
 				drawWorld();
 				Deltal -= 1.0f / (float)FPS;
-				//updateWorld(10.0f / (float)FPS);
-			
+
 			}
 
 		}
@@ -74,14 +72,14 @@ int CGameApp::gameEnd(){
 
 void CGameApp::updateWorld(float time)
 {
-	simon->Update(m_input, time);
 	camera->Update(simon->GetPosition());
+	simon->Update(m_input, time);
 }
 
 void CGameApp::drawWorld(){
 	graphic->beginRender();
 	m_spriteHandler->Begin(D3DXSPRITE_ALPHABLEND);
-	level3->Draw(m_spriteHandler, camera->GetViewPort(), 0, 46, 12, 26);
+	map3->Draw(m_spriteHandler, camera->GetViewPort(), 0, 46, 13, 27);
 	simon->Draw(m_spriteHandler, camera);
 	m_spriteHandler->End();
 	graphic->endRender();

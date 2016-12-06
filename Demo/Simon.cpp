@@ -10,18 +10,17 @@ Simon::Simon()
 Simon::~Simon(){
 }
 void Simon::Init(){
-	m_pos = D3DXVECTOR2(50, 150);
+	m_pos = D3DXVECTOR2(50, 50);
 	m_veloc = D3DXVECTOR2(0, 0);
 	m_maxVelocity = D3DXVECTOR2(40.0f, 50.0f);
 	m_MaxVeloc = m_maxVelocity;
-	m_action = run;
+	m_action = normal;
 	m_direct = 1;
 	m_lastPos = D3DXVECTOR2(0, 0);
 	m_simon = CResourceManager::GetInstance()->GetResouce(SIMON_RUN_ID);
 	m_simon_attack = CResourceManager::GetInstance()->GetResouce(SIMON_ATTACK_ID);
 	m_sprite = m_simon;
 	CGameObject::SetBound();
-
 }
 
 
@@ -38,14 +37,6 @@ void Simon::UpdateAnimation(CInput *m_input, float _time){
 			m_sprite->UpdateSprite();
 		}
 	}
-	if (m_veloc.y != 0)
-	{
-		if (m_action == Jump)
-		{
-			m_sprite->SetCurrentSprite(0);
-			m_sprite->UpdateSprite();
-		}
-	}
 	if (m_veloc.x != 0 && m_veloc.y == 0 && m_action != down){//run
 		if (m_direct == 1){
 			m_sprite->SetTimeAmination(TIMEAMINATION);
@@ -57,7 +48,6 @@ void Simon::UpdateAnimation(CInput *m_input, float _time){
 			m_sprite->UpdateSprite(_time, 2, 3, -1);
 		}
 	}
-
 
 	if (m_action == Jump){//jump
 		if (m_direct == 1){
@@ -72,33 +62,33 @@ void Simon::UpdateAnimation(CInput *m_input, float _time){
 	}
 	if (m_action == attack){//attack
 		m_sprite = m_simon_attack;
-			if (m_direct == 1){
-				m_sprite->SetTimeAmination(0.5f);
-				m_sprite->UpdateSprite(_time, 3, 5, 1);
-				if (m_sprite->GetCurrentSprite() == 5)
+		if (m_direct == 1){
+			m_sprite->SetTimeAmination(0.5f);
+			m_sprite->UpdateSprite(_time, 3, 5, 1);
+			if (m_sprite->GetCurrentSprite() == 5)
+			{
+				attackTimes++;
+				attackTimes %= 3;
+				if (attackTimes == 0)
 				{
-					attackTimes++;
-					attackTimes %= 3;
-					if (attackTimes ==0 )
-					{
-						m_action = normal;
-					}
+					m_action = normal;
 				}
 			}
-			else
-			if (m_direct == -1){
-				m_sprite->SetTimeAmination(TIMEAMINATION);
-				m_sprite->UpdateSprite(_time, 0, 2, -1);
-				if (m_sprite->GetCurrentSprite() == 2)
+		}
+		else
+		if (m_direct == -1){
+			m_sprite->SetTimeAmination(TIMEAMINATION);
+			m_sprite->UpdateSprite(_time, 0, 2, -1);
+			if (m_sprite->GetCurrentSprite() == 2)
+			{
+				attackTimes++;
+				attackTimes %= 3;
+				if (attackTimes == 0)
 				{
-					attackTimes++;
-					attackTimes %= 3;
-					if (attackTimes == 0)
-					{
-						m_action = normal;
-					}
+					m_action = normal;
 				}
-			}	
+			}
+		}
 	}
 	if (m_action == down && m_veloc.x == 0 && m_veloc.y == 0){//down
 		if (m_direct == 1){
@@ -118,20 +108,18 @@ void Simon::UpdatePosition(CInput *m_input, float _time){
 	if (m_input->OnKeyUp(DIK_RIGHT)){
 		switch (m_action)
 		{
-		case down :
+		case down:
 			m_action = normal;
 			break;
-		case Jump :
-			m_action = normal;
+		case Jump:
 			//m_pos.y = m_lastPos.y;
+			m_action = normal;
 			break;
-		
 		default:
 			m_veloc.x = 0;
 			break;
 		}
 	}
-
 	if (m_input->IsKeyDown(DIK_RIGHT) && m_action != down)
 	{
 		m_direct = 1;
@@ -140,7 +128,7 @@ void Simon::UpdatePosition(CInput *m_input, float _time){
 	else if (m_input->IsKeyDown(DIK_LEFT) && m_action != down)
 	{
 		m_direct = -1;
-		m_veloc.x = -m_maxVelocity.x ;
+		m_veloc.x = -m_maxVelocity.x;
 	}
 	else if (m_input->IsKeyDown(DIK_DOWN))
 	{
@@ -152,11 +140,11 @@ void Simon::UpdatePosition(CInput *m_input, float _time){
 		m_lastPos.y = m_pos.y;
 		if (m_veloc.y == 0 && m_action == normal){
 			m_action = Jump;
-			m_veloc.y = -m_MaxVeloc.y;
+			m_veloc.y = m_MaxVeloc.y;
 		}
 
 	}
-	else if (m_input->IsKeyPress(DIK_C))
+	else if (m_input->IsKeyDown(DIK_C) && m_action == normal)
 	{
 		m_action = attack;
 		m_veloc.x = 0;
@@ -169,13 +157,16 @@ void Simon::UpdatePosition(CInput *m_input, float _time){
 
 void Simon::UpdateCollison(CInput *m_input, float _time)
 {
-	if (m_pos.y < 120){
-		m_accel.y = 0;
+	if (m_pos.y < 0){
 		m_veloc.y = m_MaxVeloc.y;
-		m_action = normal;
+		//m_action = normal;
 	}
-	else if (m_pos.y > 150){
+	else if (m_pos.y > 0){
 		m_veloc.y = 0;
+		//m_action = normal;
+	}
+	if (m_pos.y - m_lastPos.y == 10){
+		m_veloc.y = -m_MaxVeloc.y;
 		m_action = normal;
 	}
 }

@@ -29,7 +29,7 @@ private:
 	CBrick **m_brick;
 	ID3DXFont *m_font;
 
-	Background *level3, *level4;
+	Background *map3, *map4;
 
 	int FPS;
 	float Deltal;//thoi gian update game
@@ -49,7 +49,7 @@ public:
 	void drawWorld();
 	void DisplaySomeText(LPCSTR text)
 	{
-		
+
 		// Create a colour for the text - in this case blue
 		D3DCOLOR fontColor = D3DCOLOR_ARGB(255, 0, 0, 255);
 
@@ -62,7 +62,7 @@ public:
 
 		// Draw some text 
 		// Create a D3DX font object
-		
+
 		//m_font->DrawText(NULL, text, -1, &rct, 0, fontColor);
 
 	}

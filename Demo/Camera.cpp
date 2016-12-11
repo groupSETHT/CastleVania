@@ -6,6 +6,8 @@ Camera::Camera(void)
 {
 	_ViewPortX = 0;
 	_ViewPortY = SCREEN_HEIGHT;
+	_WorldWidth = SCREEN_WIDTH;
+	_WorldHeight = SCREEN_HEIGHT;
 }
 
 Camera::~Camera(void)
@@ -37,7 +39,7 @@ void Camera::Update(D3DXVECTOR2 characterPosition)
 	}
 	else 
 	{
-			_ViewPortX = (LONG(characterPosition.x) - SCREEN_WIDTH/2) ;
+			_ViewPortX = (LONG(characterPosition.x) - SCREEN_WIDTH/2);
 	}
 
 	if (characterPosition.y - SCREEN_HEIGHT / 2 < 0)
@@ -59,7 +61,7 @@ void Camera::Update(D3DXVECTOR2 characterPosition)
 
 void Camera::AutoUpdate()
 {
-	if (_ViewPortX < _WorldWidth - SCREEN_WIDTH)
+	//if (_ViewPortX < _WorldWidth - SCREEN_WIDTH)
 		_ViewPortX += 3;
 }
 

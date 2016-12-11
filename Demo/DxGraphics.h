@@ -4,7 +4,7 @@
 #include<d3d9.h>
 #include<d3dx9.h>
 #include<Windows.h>
-#define SCREEN_WIDTH 512
+#define SCREEN_WIDTH 208
 #define SCREEN_HEIGHT 208
 
 class CGraphic

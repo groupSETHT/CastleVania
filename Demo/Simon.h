@@ -7,7 +7,7 @@
 #include"Texture.h"
 #include"colision.h"
 #include"Brick.h"
-#define TIMEAMINATION  0.2f
+#define TIMEAMINATION  0.1f
 #define MAXHEIGHT  450
 enum ActionSimon
 {

@@ -5,15 +5,15 @@
 #include"Texture.h"
 
 
-class CBrick :public CGameObject
+class Brick :public CGameObject
 {
 private:
-	CSprite *m_spriteBrick;
+	CSprite *spriteBrick;
 
 public:
-	CBrick();
-	CBrick(int, D3DXVECTOR2);
-	~CBrick();
+	Brick();
+	Brick(int, D3DXVECTOR2);
+	~Brick();
 	void Init();
 	//void Draw(LPD3DXSPRITE);
 

@@ -11,7 +11,7 @@ enum IDObject
 {
 	SIMON,
 	BRICKK,
-
+	FLEAMANN,
 };
 
 class CGameObject{

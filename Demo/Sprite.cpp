@@ -64,7 +64,6 @@ void CSprite::UpdateSprite(float _time, int _spriteBegin, int _SpriteEnd, int _f
 void CSprite::DrawSprite(LPD3DXSPRITE m_spriteHandle, D3DXVECTOR2 t_pos)
 {
 	D3DXVECTOR3 position = D3DXVECTOR3(t_pos.x - GetSpriteWidth() / 2, t_pos.y - GetSpriteHeight() / 2, 0);
-
 	m_spriteHandle->Draw(m_texture, &rect, NULL, &position, D3DCOLOR_XRGB(255, 255, 255));
 }
 CSprite::~CSprite()

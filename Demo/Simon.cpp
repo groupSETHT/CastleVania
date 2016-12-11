@@ -12,7 +12,7 @@ Simon::~Simon(){
 void Simon::Init(){
 	m_pos = D3DXVECTOR2(50, 50);
 	m_veloc = D3DXVECTOR2(0, 0);
-	m_maxVelocity = D3DXVECTOR2(40.0f, 50.0f);
+	m_maxVelocity = D3DXVECTOR2(40.0f, 90.0f);
 	m_MaxVeloc = m_maxVelocity;
 	m_action = normal;
 	m_direct = 1;
@@ -157,15 +157,11 @@ void Simon::UpdatePosition(CInput *m_input, float _time){
 
 void Simon::UpdateCollison(CInput *m_input, float _time)
 {
-	if (m_pos.y < 0){
-		m_veloc.y = m_MaxVeloc.y;
-		//m_action = normal;
-	}
-	else if (m_pos.y > 0){
+	if (m_pos.y < 50){
 		m_veloc.y = 0;
-		//m_action = normal;
+		m_action = normal;
 	}
-	if (m_pos.y - m_lastPos.y == 10){
+	if (m_pos.y >100){
 		m_veloc.y = -m_MaxVeloc.y;
 		m_action = normal;
 	}

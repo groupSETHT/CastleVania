@@ -7,6 +7,7 @@
 #include "Brick.h"
 #include "Simon.h"
 #include "Surface.h"
+#include "Fleaman.h"
 #include"colision.h"
 
 #include "Background.h"
@@ -26,7 +27,8 @@ private:
 	Camera *m_camera;
 	CTimer *m_time;
 	Simon *simon;
-	CBrick **m_brick;
+	Fleaman *fleaman;
+	Brick *brick;
 	ID3DXFont *m_font;
 
 	Background *map3, *map4;

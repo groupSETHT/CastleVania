@@ -1,6 +1,6 @@
 #pragma once
 #include <d3dx9.h>
-#define SCREEN_WIDTH 512
+#define SCREEN_WIDTH 208
 #define SCREEN_HEIGHT 208
 #define FRAME_RATE 60		
 class Camera

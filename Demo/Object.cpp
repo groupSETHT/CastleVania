@@ -3,7 +3,7 @@
 
 
 CGameObject::CGameObject(){
-	m_pos = D3DXVECTOR2(50, 0);
+	m_pos = D3DXVECTOR2(50, 50);
 	Init();
 }
 CGameObject::CGameObject(int _id, D3DXVECTOR2 _mpos){

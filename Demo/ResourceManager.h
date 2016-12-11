@@ -1,12 +1,10 @@
 #ifndef RESOURCEMANAGER_H_
 #define RESOURCEMANAGER_H_
-#define MARIO_BIG "Resource//Images//PlayLon.png"
 #define BALL_IMAGE "Resource//Images//ball.bmp"
 #define SIMON_ATTACK "Resource//Images//simon_attack_normal.png"
 #define SIMON_RUN "Resource//Images//simon.png"
-#define MARIO_GUN "Resource//Images//PlaySung.png"
 #define BRICK "Resource//Images//brick.png"
-#define Fleaman "Resource//Images//Fleaman.png"
+#define FLEAMAN "Resource//Images//Fleaman.png"
 
 
 
@@ -32,8 +30,7 @@ class CResourceManager{
 public:
 	CSprite *simon_attack;
 	CSprite *simon_run;
-	CSprite *m_brick;
-	CSprite *m_ball;
+	CSprite *brick;
 	CSprite *fleaman;
 
 	

@@ -7,7 +7,7 @@
 #include <Windows.h>
 
 #define NameClass "Castle Vania"
-#define SCREEN_WIDTH   512
+#define SCREEN_WIDTH   208
 #define SCREEN_HEIGHT 208
 class CWindown
 {
